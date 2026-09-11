@@ -13,10 +13,20 @@ pop es
 
 ; game loop
 game_loop:
-	mov al, 04h ; RED
-	mov cx, 320*200
+	xor ax, ax
 	xor di, di
+	mov cx, 320*200
 	rep stosb
+
+	;draw aliens
+	;draw barricade
+	;draw ship
+	;check if hit(player hit, alien hit, barriacde hit
+	;draw lasers
+	;create alien attack
+	;move alien
+	;player input
+
 	;delay
 	delay_timer:
 		mov ax, [046CH] ;ticks since midnight
@@ -31,7 +41,18 @@ jmp game_loop
 game_over:
 	cli
 	hlt
+
+
+;data segment
+sprite_bitmap:
+	db 10011001b
+	db 01011010b
+	db 00111100b
+	db 01000010b
+
 	
+
+
 times 510-($-$$) db 0
 ;section boot_signature start=7DFEh
 ;;; boot signature
